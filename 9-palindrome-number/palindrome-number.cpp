@@ -10,6 +10,9 @@ public:
             a = a*10+x%10;
             x = x/10;
         }
+        if(n>INT_MAX || n<INT_MIN){
+            return 0;
+        }
         return a==n;
     }
 };
