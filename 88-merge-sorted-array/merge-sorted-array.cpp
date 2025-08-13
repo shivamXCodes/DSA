@@ -20,9 +20,9 @@ public:
             arr.push_back(nums1[i]);
             i++;
         }
-        // for(int k=0;k<arr.size();k++){
-        //     nums1[k] = arr[k];
-        // }
-        nums1 = arr;
+        for(int k=0;k<arr.size();k++){
+            nums1[k] = arr[k];
+        }
+        // nums1 = arr;
     }
 };
