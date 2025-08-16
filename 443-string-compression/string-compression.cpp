@@ -5,7 +5,8 @@ public:
         int oc=0;
         vector<char>res;
         int n = arr.size();
-        for(int i=0;i<n;i++){
+        int i=0;
+        while(i<n){
             count=1;
             int j=i+1;
             while(j<n && arr[j]==arr[i]){
@@ -22,7 +23,7 @@ public:
                     oc++;
                 }
             }
-            i=j-1;
+            i=j;
         }
         return oc;
     }
