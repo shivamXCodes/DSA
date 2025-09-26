@@ -10,23 +10,41 @@
  */
 class Solution {
 public:
-    bool isPalindrome(ListNode* head) {
-        string str = "";
-        ListNode* temp = head;
-        while(temp!=NULL){
-            str.push_back(temp->val);
-            temp = temp->next;
+    ListNode* getMiddle(ListNode* head){
+        if(head==NULL || head->next==NULL){
+            return head;
         }
-        int start = 0;
-        int end = str.size()-1;
-    while(start<=end){
-        if(str[start]!=str[end]){
+        ListNode* slow = head;
+        ListNode* fast = head;
+        while(fast->next!=NULL && fast->next->next!=NULL ){
+          slow = slow->next;
+          fast = fast->next->next;
+        }
+        return slow;
+         
+    }
+    ListNode* reverse(ListNode* head){
+        ListNode* curr = head;
+        ListNode* prev = NULL;
+        while(curr!=NULL){
+            ListNode* next = curr->next;
+            curr->next = prev;
+            prev = curr;
+            curr = next;
+        }
+        return prev;
+    }
+    bool isPalindrome(ListNode* head) {
+       ListNode* middle=getMiddle(head);
+       ListNode* firstLL = head;
+       ListNode* secondLL = reverse(middle->next);
+       while(secondLL!=NULL){
+        if(firstLL->val!=secondLL->val){
             return false;
         }
-        start++;
-        end--;
-    }
-    return true;
-
+        firstLL=firstLL->next;
+        secondLL = secondLL->next;
+       }
+       return true;
     }
 };
