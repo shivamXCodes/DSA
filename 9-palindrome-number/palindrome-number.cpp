@@ -1,18 +1,21 @@
 class Solution {
 public:
-    bool isPalindrome(int n) {
+    bool isPalindrome(int x) {
+        if(x<0){
+            return false;
+        }
+        if(x>INT_MAX || x<INT_MIN){
+            return false;
+        }
+        long temp = x;
         long a = 0;
-        int x = n;
-        if(n<0){
-            return 0;
+        while(temp>0){
+            a = a*10+temp%10;
+            temp = temp/10;
         }
-        while(x>0){
-            a = a*10+x%10;
-            x = x/10;
+        if(a==x){
+            return true;
         }
-        if(n>INT_MAX || n<INT_MIN){
-            return 0;
-        }
-        return a==n;
+        return false;
     }
 };
