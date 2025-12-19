@@ -5,13 +5,10 @@ public:
         int j = 0;
         while(j<nums.size()){
             if(nums[j]!=0){
-                nums[i] = nums[j];
+                swap(nums[i] , nums[j]);
                 i++;
             }
             j++;
-        }
-        for(int k = i;k<nums.size();k++){
-            nums[k]=0;
         }
         
     }
