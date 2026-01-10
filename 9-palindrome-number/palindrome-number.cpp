@@ -4,17 +4,16 @@ public:
         if(x<0){
             return false;
         }
-        if(x>INT_MAX || x<INT_MIN){
-            return false;
-        }
-        long temp = x;
-        long a = 0;
-        while(temp>0){
-            a = a*10+temp%10;
-            temp = temp/10;
-        }
-        if(a==x){
-            return true;
+        else{
+            long rev = 0;
+            long temp = x;
+            while(temp>0){
+                rev  = (rev*10) + (temp%10);
+                temp = temp/10;  
+            }
+            if(rev == x){
+                return true;
+            }
         }
         return false;
     }
