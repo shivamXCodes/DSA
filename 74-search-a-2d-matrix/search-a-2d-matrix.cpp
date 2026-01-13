@@ -14,7 +14,8 @@ public:
             int ele = matrix[mid/col][mid%col];
             if(ele==target){
                 return 1;
-            }if(ele<target){
+            }
+            else if(ele<target){
                 start = mid+1;
             }else{
                 end = mid-1;
