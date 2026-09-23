@@ -5,7 +5,7 @@ class Solution {
             int complement = target - nums[i];
             if(h.containsKey(complement)){
                 int j = h.get(complement);
-                return new int[]{i,j};
+                return new int[]{j,i};
             }
             h.put(nums[i],i);
         }
