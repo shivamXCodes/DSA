@@ -20,16 +20,19 @@ public class Solution {
             fast = fast.next.next;
             if(slow == fast){
                 meetPoint = slow;
+                slow = head;
                 break;
-            }   
+            }
         }
-        slow = head;
-        while(fast!=null && fast.next!=null){
-            if(meetPoint == slow){
+        if(meetPoint!=null){
+        while(slow!=null){
+            if(slow==meetPoint){
                 return slow;
             }
             slow = slow.next;
             meetPoint = meetPoint.next;
+            
+        }
         }
         return null;
     }
