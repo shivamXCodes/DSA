@@ -12,29 +12,26 @@ class MyQueue {
     }
     
     public int pop() {
-        while(!mainStack.empty()){
-        helperStack.push(mainStack.pop());
+        if(helperStack.empty()){
+            while(!mainStack.empty()){
+           helperStack.push(mainStack.pop());
         }
-        int ele = helperStack.pop();
-        while(!helperStack.empty()){
-            mainStack.push(helperStack.pop());
         }
-        return ele;
+        return helperStack.pop();
+       
     }
     
     public int peek() {
-        while(!mainStack.empty()){
-        helperStack.push(mainStack.pop());
+         if(helperStack.empty()){
+            while(!mainStack.empty()){
+           helperStack.push(mainStack.pop());
         }
-        int ele = helperStack.peek();
-        while(!helperStack.empty()){
-            mainStack.push(helperStack.pop());
         }
-        return ele;
+        return helperStack.peek();
     }
     
     public boolean empty() {
-        return mainStack.empty();
+        return (mainStack.empty()== true) && (helperStack.empty()==true);
     }
 }
 
