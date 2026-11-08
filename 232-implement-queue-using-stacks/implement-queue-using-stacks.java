@@ -8,22 +8,29 @@ class MyQueue {
     }
     
     public void push(int x) {
-        while(!mainStack.empty()){
-            int ele = mainStack.pop();
-            helperStack.push(ele);
-        }
         mainStack.push(x);
-        while(!helperStack.empty()){
-            mainStack.push(helperStack.pop());
-        }
     }
     
     public int pop() {
-        return mainStack.pop();
+        while(!mainStack.empty()){
+        helperStack.push(mainStack.pop());
+        }
+        int ele = helperStack.pop();
+        while(!helperStack.empty()){
+            mainStack.push(helperStack.pop());
+        }
+        return ele;
     }
     
     public int peek() {
-        return mainStack.peek();
+        while(!mainStack.empty()){
+        helperStack.push(mainStack.pop());
+        }
+        int ele = helperStack.peek();
+        while(!helperStack.empty()){
+            mainStack.push(helperStack.pop());
+        }
+        return ele;
     }
     
     public boolean empty() {
